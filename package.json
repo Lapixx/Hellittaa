@@ -1,19 +1,28 @@
 {
-  "name": "hellittaa",
-  "version": "0.0.1",
-  "description": "Simple chat webapp",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lapixx/Hellittaa.git"
-  },
-  "author": "Tijn Kersjes <tijn@divbyzero.nl>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Lapixx/Hellittaa/issues"
-  },
-  "homepage": "https://github.com/Lapixx/Hellittaa#readme"
+    "name": "hellittaa",
+    "version": "0.0.1",
+    "description": "Simple chat webapp",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "NODE_ENV=production webpack -p"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lapixx/Hellittaa.git"
+    },
+    "author": "Tijn Kersjes <tijn@divbyzero.nl>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Lapixx/Hellittaa/issues"
+    },
+    "homepage": "https://github.com/Lapixx/Hellittaa#readme",
+    "dependencies": {
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-latest": "^6.24.1",
+        "babel-preset-stage-0": "^6.24.1",
+        "webpack": "^2.4.1"
+    }
 }
