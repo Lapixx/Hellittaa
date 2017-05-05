@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { addMessage } from '../actions';
+import { addMessage } from '../actions/index';
 import MessageInput from '../components/MessageInput';
 
 const mapStateToProps = state => ({});

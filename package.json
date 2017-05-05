@@ -4,9 +4,14 @@
     "description": "Simple chat webapp",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server",
+        "start": "NODE_ENV=production node dist/server/index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "NODE_ENV=production webpack -p"
+        "watch": "concurrently --kill-others 'npm run watch:app' 'npm run watch:server'",
+        "watch:app": "webpack --watch",
+        "watch:server": "babel --watch --out-dir dist/server src/server",
+        "build": "npm run build:app && npm run build:server",
+        "build:app": "NODE_ENV=production webpack -p",
+        "build:server": "babel --out-dir dist/server src/server"
     },
     "repository": {
         "type": "git",
@@ -25,6 +30,7 @@
         "babel-preset-latest": "^6.24.1",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-0": "^6.24.1",
+        "concurrently": "^3.4.0",
         "css-loader": "^0.28.1",
         "html-webpack-plugin": "^2.28.0",
         "node-sass": "^4.5.2",
