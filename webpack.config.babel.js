@@ -37,9 +37,26 @@ export default {
             {
                 test: /\.(sass|scss)$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: !prod
+                        }
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            localIdentName: '[sha512:hash:base32]-[name]-[local]',
+                            modules: true,
+                            sourceMap: !prod
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: !prod
+                        }
+                    }
                 ]
             }
         ]
