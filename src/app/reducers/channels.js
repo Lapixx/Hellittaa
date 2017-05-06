@@ -26,10 +26,13 @@ const channels = (state = [], action) => {
 
 const currentChannel = (state = '', action) => {
     switch (action && action.type) {
+
         case 'RECEIVE_CHANNEL':
             return state || action.id;
+
         case 'SET_CHANNEL':
             return action.channelId;
+
         default:
             return state;
     }

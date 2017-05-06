@@ -5,4 +5,17 @@
 .activeItem {
   background-color: #CB9C55;
   color: #FFFFFF;
+  .count {
+    display: none;
+  }
+}
+
+.item {
+  .count {
+    background-color: #CD6D6B;
+    color: #FFFFFF;
+    border-radius: 50px;
+    padding: 0 10px;
+    margin-left: 10px;
+  }
 }

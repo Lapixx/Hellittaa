@@ -4,7 +4,6 @@ import { receiveMessage, receiveChannel } from '../actions/index';
 const dispatchEvents = (io, dispatch) => {
 
     io.on('message', data => {
-        console.log('message', data);
         dispatch(receiveMessage(data));
     });
 

@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import ChannelListItem from './ChannelListItem';
+import ChannelListItem from '../containers/ChannelListItem';
 
 const ChannelList = ({ channels, currentChannelId, onChannelClick }) => (
     <div>

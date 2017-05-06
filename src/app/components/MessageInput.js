@@ -6,8 +6,12 @@ const MessageInput = ({ onSend, label }) => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        if (onSend instanceof Function)
-            onSend(inputElem.value);
+
+        const body = inputElem.value.trim();
+
+        if (onSend instanceof Function && body.length > 0)
+            onSend(body);
+
         inputElem.value = '';
     };
 

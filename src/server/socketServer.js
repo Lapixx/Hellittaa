@@ -1,6 +1,11 @@
 import socketIO from 'socket.io';
 import getUUID from 'uuid/v4';
 
+const chans = ['General', 'Work', 'Random'].map(name => ({
+    id: getUUID(),
+    name
+}));
+
 const startSocketServer = server => {
 
     const io = socketIO(server);
@@ -29,9 +34,7 @@ const startSocketServer = server => {
             connections.splice(index, 1);
         });
 
-        socket.emit('channel', { name: 'General', id: getUUID() });
-        socket.emit('channel', { name: 'Work', id: getUUID() });
-        socket.emit('channel', { name: 'Random', id: getUUID() });
+        chans.forEach(c => socket.emit('channel', c));
     });
 
     return server;
