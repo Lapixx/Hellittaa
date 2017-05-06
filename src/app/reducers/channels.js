@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 const channel = (state = {}, action) => {
     switch (action && action.type) {
 
-    case 'CREATE_CHANNEL':
+    case 'RECEIVE_CHANNEL':
         return { id: action.id, name: action.name };
 
     default:
@@ -15,7 +15,7 @@ const channel = (state = {}, action) => {
 const channels = (state = [], action) => {
     switch (action && action.type) {
 
-    case 'CREATE_CHANNEL':
+    case 'RECEIVE_CHANNEL':
         return [...state, channel(null, action)];
 
     default:
@@ -26,6 +26,8 @@ const channels = (state = [], action) => {
 
 const currentChannel = (state = '', action) => {
     switch (action && action.type) {
+        case 'RECEIVE_CHANNEL':
+            return state || action.id;
         case 'SET_CHANNEL':
             return action.channelId;
         default:

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import rootReducer from './reducers';
+import connectIO from './socketio';
 import App from './components/App';
 
 /* eslint-disable no-underscore-dangle */
@@ -13,12 +14,8 @@ const store = createStore(
 );
 /* eslint-enable */
 
-// @TODO Remove after testing
-import { createChannel, sendMessage } from './actions';
-store.dispatch(createChannel("General"));
-store.dispatch(createChannel("Random"));
-store.dispatch(createChannel("Work"));
-store.dispatch(sendMessage("test", "Tijn", "Hello world!"));
+// connect socket client
+connectIO(store);
 
 const rootComponent = (
     <Provider store={store}>
