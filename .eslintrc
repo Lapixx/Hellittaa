@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "PRODUCTION": false
+  },
+  "rules": {
+
+    // this is not working atm
+    "jsx-a11y/img-has-alt": "off",
+    "jsx-a11y/label-uses-for": "off",
+    "jsx-a11y/mouse-events-map-to-key-events": "off",
+    "jsx-a11y/no-hash-href": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/redundant-alt": "off",
+    "jsx-a11y/valid-aria-role": "off",
+
+    // manual overrides
+    "indent": ["error", 4],
+    "react/jsx-indent": ["error", 4],
+    "curly": ["error", "multi-or-nest"],
+    "comma-dangle": "off",
+    "no-plusplus": "off",
+    "react/jsx-filename-extension": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}

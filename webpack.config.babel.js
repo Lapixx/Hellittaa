@@ -46,7 +46,7 @@ export default {
                     {
                         loader: 'css-loader',
                         options: {
-                            localIdentName: '[sha512:hash:base32]-[name]-[local]',
+                            localIdentName: '[sha512:hash:base32:10]-[name]-[local]',
                             modules: true,
                             sourceMap: !prod
                         }
