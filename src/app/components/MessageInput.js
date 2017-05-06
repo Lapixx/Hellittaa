@@ -1,23 +1,31 @@
+import { PropTypes } from 'prop-types';
+import style from '../styles/messageInput.scss';
+
 const MessageInput = ({ onSend, label }) => {
+    let inputElem;
 
-    let body;
-
-    const onFormSubmit = e => {
+    const onFormSubmit = (e) => {
         e.preventDefault();
-        onSend && onSend(body.value);
-        body.value = '';
+        if (onSend instanceof Function)
+            onSend(inputElem.value);
+        inputElem.value = '';
     };
 
     return (
 
-        <form onSubmit={onFormSubmit}>
-            <input ref={n => { body = n }} />
-            <button type="submit">
+        <form onSubmit={onFormSubmit} className={style.main}>
+            <input ref={(n) => { inputElem = n; }} className={style.input} />
+            <button type="submit" className={style.button}>
                 {label}
             </button>
         </form>
 
-   );
+    );
+};
+
+MessageInput.propTypes = {
+    onSend: PropTypes.func.isRequired,
+    label: PropTypes.string.isRequired
 };
 
 export default MessageInput;

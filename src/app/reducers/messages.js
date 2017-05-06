@@ -1,11 +1,11 @@
 const message = (state = {}, action) => {
     switch (action && action.type) {
 
-        case 'ADD_MESSAGE':
-            return { id: action.id, body: action.body, timestamp: action.timestamp };
+    case 'ADD_MESSAGE':
+        return { id: action.id, sender: action.sender, body: action.body, timestamp: action.timestamp };
 
-        default:
-            return state;
+    default:
+        return state;
 
     }
 };
@@ -13,13 +13,15 @@ const message = (state = {}, action) => {
 const messages = (state = [], action) => {
     switch (action && action.type) {
 
-        case 'ADD_MESSAGE':
-            return [ ...state, message(null, action) ];
+    case 'ADD_MESSAGE':
+        return [...state, message(null, action)];
 
-        default:
-            return state;
+    default:
+        return state;
 
     }
 };
 
 export default messages;
+
+export const getAllMessages = state => state;

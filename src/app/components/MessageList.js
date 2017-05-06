@@ -1,3 +1,4 @@
+import { PropTypes } from 'prop-types';
 import Message from './Message';
 
 const MessageList = ({ messages }) => (
@@ -8,5 +9,13 @@ const MessageList = ({ messages }) => (
         )}
     </div>
 );
+
+MessageList.propTypes = {
+    messages: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        timestamp: PropTypes.number.isRequired,
+        body: PropTypes.string.isRequired
+    }).isRequired).isRequired
+};
 
 export default MessageList;

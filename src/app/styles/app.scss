@@ -1,6 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+html, body {
+  height: 100%;
+}
+
 body {
-  background-color: #F0F0F0;
   color: #252525;
-  font-family: sans-serif;
-  font-size: 18px;
+  font-family: 'Merriweather', sans-serif;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+  //.title {
+  //  color: rgb(255, 85, 68);
+  //  text-shadow: 0 1px 0 rgba(128, 50, 35, 0.5);
+  //}
+
+.main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 1fr;
+
+  .sidebar {
+    background-color: #4E5250;
+    color: #B8BAB9;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .messages {
+    grid-column: 2;
+    grid-row: 1;
+    overflow-y: scroll;
+  }
 }

@@ -1,0 +1,8 @@
+.item, .activeItem {
+  cursor: pointer;
+  padding: 12px 24px;
+}
+.activeItem {
+  background-color: #CB9C55;
+  color: #FFFFFF;
+}

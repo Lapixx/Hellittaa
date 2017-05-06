@@ -1,0 +1,22 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr;
+
+  .input {
+    grid-column: 1;
+    grid-row: 1;
+
+    padding: 20px;
+    border: 2px solid #AAAAAA;
+    border-radius: 4px;
+    font-family: 'Merriweather', sans-serif;
+    font-size: 14px;
+  }
+
+  .button {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 2em;
+  }
+}

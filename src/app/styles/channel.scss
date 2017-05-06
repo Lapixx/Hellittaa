@@ -1,0 +1,19 @@
+.channel {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+
+  .messages {
+    background-color: #FFFFFF;
+    padding: 24px;
+    grid-column: 1;
+    grid-row: 1;
+    overflow-y: scroll;
+  }
+  .input {
+    background-color: #F0F0F0;
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
