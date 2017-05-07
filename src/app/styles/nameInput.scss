@@ -1,15 +1,13 @@
 .main {
-  //background-color: #4E5250;
-  //color: #B8BAB9;
   //display: grid;
   //grid-template-columns: 1fr auto;
   //grid-template-rows: 1fr;
 
   .input {
-    //grid-column: 1;
-    //grid-row: 1;
 
-    //padding: 20px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 20px;
     border: 2px solid #AAAAAA;
     border-radius: 4px;
     font-family: 'Merriweather', sans-serif;
@@ -17,8 +15,6 @@
   }
 
   .button {
-    //grid-column: 2;
-    //grid-row: 1;
-    //padding: 2em;
+    padding: 2em;
   }
 }

@@ -1,4 +1,21 @@
-.timestamp {
-  font-size: 12px;
-  opacity: 0.4;
+.message {
+  margin-bottom: 16px;
+
+  .nick {
+    font-weight: 900;
+  }
+
+  .timestamp {
+    font-weight: 300;
+    font-size: 12px;
+    color: #AAAAAA;
+    font-style: italic;
+  }
+}
+
+.mine {
+  opacity: 0.5;
+}
+.other {
+
 }
