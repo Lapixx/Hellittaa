@@ -33,3 +33,8 @@ export const setChannel = channelId => ({
     type: 'SET_CHANNEL',
     channelId
 });
+
+export const setNickname = nickname => ({
+    type: 'SET_NICKNAME',
+    nickname
+});

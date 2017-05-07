@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 
 import rootReducer from './reducers';
 import connectIO from './socketio';
-import App from './components/App';
+import App from './containers/App';
 
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
