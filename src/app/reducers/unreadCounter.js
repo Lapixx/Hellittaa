@@ -2,7 +2,7 @@ const channel = (state = {}, action) => {
     switch (action && action.type) {
 
     case 'RECEIVE_CHANNEL':
-        return { id: action.id, count: 0 };
+        return { id: action.id, count: 0, active: false };
 
     case 'RECEIVE_MESSAGE':
         return action.channelId === state.id && !state.active ?
@@ -24,7 +24,10 @@ const unreadCounter = (state = [], action) => {
     switch (action && action.type) {
 
     case 'RECEIVE_CHANNEL':
-        return [...state, channel(null, action)];
+        const newChan = channel(null, action);
+        if (state.length === 0)
+            newChan.active = true;
+        return [...state, newChan];
 
     case 'RECEIVE_MESSAGE':
         return state.map(c => channel(c, action));
