@@ -1,9 +1,17 @@
-import expressServer from './expressServer';
-import socketServer from './socketServer';
+import createExpressServer from './createExpressServer';
+import createStore from './createStore';
+import connectIO from './socketio';
 
+import { addChannel } from './actions';
 
-const server = expressServer();
-const io = socketServer(server);
+// setup server, redux store and socket
+const server = createExpressServer();
+const store = createStore();
+connectIO(server, store);
+
+// create some initial channels
+const initialChannels = ['General', 'Work', 'Random'];
+initialChannels.forEach(chan => store.dispatch(addChannel(chan)));
 
 // start listening
 const port = process.env.PORT || 8080;
