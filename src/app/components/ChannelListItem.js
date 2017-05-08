@@ -3,7 +3,7 @@ import style from '../styles/channelListItem.scss';
 
 const ChannelListItem = ({ name, onClick, isActive, unread }) => (
     <div onClick={onClick} className={isActive ? style.activeItem : style.item}>
-        {name} {unread > 0 ? <span className={style.count}>{unread}</span> : null}
+        #{name} {unread > 0 ? <span className={style.count}>{unread}</span> : null}
     </div>
 );
 

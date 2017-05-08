@@ -1,7 +1,8 @@
 import { PropTypes } from 'prop-types';
 import ChannelListItem from '../containers/ChannelListItem';
+import ChannelCreationButton from '../components/ChannelCreationButton';
 
-const ChannelList = ({ channels, activeChannelId, onChannelClick }) => (
+const ChannelList = ({ channels, onCreateNewChannel, activeChannelId, onChannelClick }) => (
     <div>
         {channels.map(
             channel =>
@@ -12,6 +13,7 @@ const ChannelList = ({ channels, activeChannelId, onChannelClick }) => (
                   isActive={activeChannelId === channel.id}
                 />)
         )}
+        <ChannelCreationButton label="+" onCreate={onCreateNewChannel} />
     </div>
 );
 
@@ -21,7 +23,8 @@ ChannelList.propTypes = {
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
     activeChannelId: PropTypes.string.isRequired,
-    onChannelClick: PropTypes.func.isRequired
+    onChannelClick: PropTypes.func.isRequired,
+    onCreateNewChannel: PropTypes.func.isRequired
 };
 
 export default ChannelList;
