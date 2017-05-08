@@ -1,4 +1,4 @@
-import { receiveMessage, receiveChannel } from '../actions/index';
+import { receiveMessage, receiveChannel } from '../actions';
 
 // listens for incoming ioevents and dispatches them to redux
 const dispatchEvents = (io, dispatch) => {

@@ -1,6 +1,7 @@
 const emittableActions = [
     'SEND_MESSAGE',
-    'CREATE_CHANNEL'
+    'CREATE_CHANNEL',
+    'SET_NICKNAME'
 ];
 
 // wraps the store.dispatch function to emit redux events to the server
