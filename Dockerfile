@@ -3,9 +3,9 @@ FROM node:boron
 RUN mkdir -p /var/www
 WORKDIR /var/www
 
-COPY package.json /var/www
+COPY package.json /var/www/
 RUN npm install
-COPY . /var/www
+COPY . /var/www/
 RUN npm run build
 
 EXPOSE 8080
