@@ -1,8 +1,6 @@
 import { getChannels, getConnectionBySocket } from '../reducers';
 import { setNickname, addConnection, removeConnection, sendMessage, addChannel } from '../actions';
 
-import { emitAll, emitOthers } from './helpers';
-
 // listens for incoming ioevents and handle them
 const dispatchEvents = (io, store) => {
 
@@ -22,17 +20,17 @@ const dispatchEvents = (io, store) => {
             const action = sendMessage(nick, ev.channelId, ev.body);
             store.dispatch(action);
 
-            emitOthers(state, socket, 'message', action);
+            // send to all other sockets
+            socket.broadcast.emit('message', action);
         });
 
         socket.on('CREATE_CHANNEL', ev => {
 
-            const state = store.getState();
-
             const action = addChannel(ev.name);
             store.dispatch(action);
 
-            emitAll(state, 'channel', action);
+            // send to all sockets
+            io.emit('channel', action);
         });
 
         socket.on('disconnect', () => {
