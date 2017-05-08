@@ -1,31 +1,46 @@
+import { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import style from '../styles/messageInput.scss';
 
-const MessageInput = ({ onSend, label }) => {
-    let inputElem;
+class MessageInput extends Component {
 
-    const onFormSubmit = (e) => {
-        e.preventDefault();
-
-        const body = inputElem.value.trim();
-
-        if (onSend instanceof Function && body.length > 0)
-            onSend(body);
-
-        inputElem.value = '';
+    focusInput = ()  => {
+        this.inputElem.focus();
     };
 
-    return (
+    componentDidMount() {
+        this.focusInput();
+    }
 
-        <form onSubmit={onFormSubmit} className={style.main}>
-            <input ref={(n) => { inputElem = n; }} className={style.input} />
-            <button type="submit" className={style.button}>
-                {label}
-            </button>
-        </form>
+    componentDidUpdate() {
+        this.focusInput();
+    }
 
-    );
-};
+    onFormSubmit = (e) => {
+        e.preventDefault();
+
+        const body = this.inputElem.value.trim();
+
+        if (body.length > 0)
+            this.props.onSend(body);
+
+        this.inputElem.value = '';
+    };
+
+    render () {
+
+        return (
+            <form onSubmit={this.onFormSubmit} className={style.main}>
+                <input ref={(n) => {
+                    this.inputElem = n;
+                }} className={style.input}/>
+                <button type="submit" className={style.button}>
+                    {this.props.label}
+                </button>
+            </form>
+        );
+    }
+}
 
 MessageInput.propTypes = {
     onSend: PropTypes.func.isRequired,

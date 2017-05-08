@@ -1,30 +1,37 @@
+import { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import style from '../styles/nameInput.scss';
 
-const NameInput = ({ onSubmit, label }) => {
-    let inputElem;
+class NameInput extends Component {
 
-    const onFormSubmit = (e) => {
+    componentDidMount() {
+        this.inputElem.focus();
+    }
+
+    onFormSubmit = (e) => {
         e.preventDefault();
 
-        const name = inputElem.value.trim();
+        const name = this.inputElem.value.trim();
 
-        if (onSubmit.length > 0)
-            onSubmit(name);
+        if (name.length > 0)
+            this.props.onSubmit(name);
 
-        inputElem.value = '';
+        this.inputElem.value = '';
     };
 
-    return (
+    render () {
 
-        <form onSubmit={onFormSubmit} className={style.main}>
-            <input ref={(n) => { inputElem = n; }} className={style.input} />
-            <button type="submit" className={style.button}>
-                {label}
-            </button>
-        </form>
-
-    );
+        return (
+            <form onSubmit={this.onFormSubmit} className={style.main}>
+                <input ref={(n) => {
+                    this.inputElem = n;
+                }} className={style.input}/>
+                <button type="submit" className={style.button}>
+                    {this.props.label}
+                </button>
+            </form>
+        );
+    }
 };
 
 NameInput.propTypes = {
