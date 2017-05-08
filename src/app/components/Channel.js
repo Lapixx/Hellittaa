@@ -7,13 +7,13 @@ import style from '../styles/channel.scss';
 
 const getVisibleMessages = (messages, channelId) => messages.filter(msg => msg.channelId === channelId);
 
-const Channel = ({ nickname, messages, currentChannelId }) => (
+const Channel = ({ nickname, messages, channelId }) => (
     <div className={style.channel}>
         <div className={style.messages}>
-            <MessageList messages={getVisibleMessages(messages, currentChannelId)} />
+            <MessageList messages={getVisibleMessages(messages, channelId)} />
         </div>
         <div className={style.input}>
-            <AddMessage label="Send" channelId={currentChannelId} nickname={nickname} />
+            <AddMessage label="Send" channelId={channelId} nickname={nickname} />
         </div>
     </div>
 );
@@ -25,7 +25,7 @@ Channel.propTypes = {
         timestamp: PropTypes.number.isRequired,
         body: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    currentChannelId: PropTypes.string.isRequired
+    channelId: PropTypes.string.isRequired
 };
 
 export default Channel;

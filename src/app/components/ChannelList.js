@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import ChannelListItem from '../containers/ChannelListItem';
 
-const ChannelList = ({ channels, currentChannelId, onChannelClick }) => (
+const ChannelList = ({ channels, activeChannelId, onChannelClick }) => (
     <div>
         {channels.map(
             channel =>
@@ -9,7 +9,7 @@ const ChannelList = ({ channels, currentChannelId, onChannelClick }) => (
                   key={channel.id}
                   {...channel}
                   onClick={() => onChannelClick(channel.id)}
-                  isActive={currentChannelId === channel.id}
+                  isActive={activeChannelId === channel.id}
                 />)
         )}
     </div>
@@ -20,7 +20,7 @@ ChannelList.propTypes = {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    currentChannelId: PropTypes.string.isRequired,
+    activeChannelId: PropTypes.string.isRequired,
     onChannelClick: PropTypes.func.isRequired
 };
 

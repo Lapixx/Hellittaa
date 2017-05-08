@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { getAllMessages, getCurrentChannelId } from '../reducers';
+import { getAllMessages, getActiveChannel } from '../reducers';
 import Channel from '../components/Channel';
 
 const mapStateToProps = (state, ownProps) => ({
     messages: getAllMessages(state),
-    currentChannelId: getCurrentChannelId(state)
+    channelId: getActiveChannel(state).id
 });
 
 const CurrentChannel = connect(

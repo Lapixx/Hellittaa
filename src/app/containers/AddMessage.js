@@ -1,12 +1,12 @@
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getCurrentChannelId } from '../reducers';
+import { getActiveChannel } from '../reducers';
 import { sendMessage } from '../actions/index';
 import MessageInput from '../components/MessageInput';
 
 const mapStateToProps = state => ({
-    channelId: getCurrentChannelId(state)
+    channelId: getActiveChannel(state).id
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
